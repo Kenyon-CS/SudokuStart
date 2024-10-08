@@ -60,6 +60,7 @@ bool sudoku::findEmptyGridSlot(int &row, int &col)
 {
     cout << "Write the definition. See Programming Exercise 18."
          << endl;
+    return false;  
 }
 
 bool sudoku::canPlaceNum(int row, int col, int num)
