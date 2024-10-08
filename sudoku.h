@@ -74,5 +74,4 @@ public:
 private:
     int grid[9][9];
 };
-#include "sudokuImp.cpp"
 #endif //
