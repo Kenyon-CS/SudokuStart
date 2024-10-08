@@ -66,18 +66,21 @@ bool sudoku::canPlaceNum(int row, int col, int num)
 {
     cout << "Write the definition. See Programming Exercise 18."
          << endl;
+    return false;  
 }
 
 bool sudoku::numAlreadyInRow(int row, int num)
 {
     cout << "Write the definition. See Programming Exercise 18."
          << endl;
+    return false;  
 }
 
 bool sudoku::numAlreadyInCol(int col, int num)
 {
-   cout << "Write the definition. See Programming Exercise 18."
+    cout << "Write the definition. See Programming Exercise 18."
          << endl;
+    return false;
 }
 
 bool sudoku::numAlreadyInBox(int smallGridRow, int smallGridCol, 
@@ -85,5 +88,7 @@ bool sudoku::numAlreadyInBox(int smallGridRow, int smallGridCol,
 {
     cout << "Write the definition. See Programming Exercise 18."
          << endl;
+    return false;  
 }
+
 
