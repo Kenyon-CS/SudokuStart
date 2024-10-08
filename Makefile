@@ -1,22 +1,35 @@
-# Compiler and flags
+# Makefile for the Sudoku
+
+# Compiler
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra -O2
 
-# List all .cpp files in the current directory
-SOURCES := $(wildcard *.cpp)
+# Compiler flags
+CXXFLAGS = -std=c++11 -I.
 
-# Generate executable names by stripping the .cpp extension
-EXECUTABLES := $(SOURCES:.cpp=)
+# Source files
+SRCS = testProgSudoku.cpp sudoku.cpp
 
-# Default target: build all executables
-all: $(EXECUTABLES)
+# Object files
+OBJS = testProgSudoku.o sudoku.o
 
-# Rule to compile each .cpp file into an executable with the same name
-%: %.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
+# Executable name
+TARGET = testSudoku
 
-# Clean up generated executables
+# Default rule
+all: $(TARGET)
+
+# Rule to link object files and create the executable
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+# Rule to compile testProgSudoku.cpp
+testProgSudoku.o: testProgSudoku.cpp sudoku.h 
+	$(CXX) $(CXXFLAGS) -c testProgSudoku.cpp
+
+# Rule to compile sudoku.cpp
+sudoku.o: sudoku.cpp sudoku.h 
+	$(CXX) $(CXXFLAGS) -c sudoku.cpp
+
+# Clean rule to remove object files and the executable
 clean:
-	rm -f $(EXECUTABLES)
-
-.PHONY: all clean
+	rm -f $(OBJS) $(TARGET)
